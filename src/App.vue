@@ -7,12 +7,12 @@
 </template>
 
 <script>
-
 import InstaFeed from './components/InstaFeed';
+
 export default {
   name: 'app',
   components: { InstaFeed },
-}
+};
 </script>
 
 <style>
