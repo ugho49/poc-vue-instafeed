@@ -2,16 +2,16 @@
   <div id="app">
     <img src="./assets/logo.png">
     <h2>Welcome to InstaFeed App</h2>
-    <insta-feed />
+    <insta />
   </div>
 </template>
 
 <script>
-import InstaFeed from './components/InstaFeed';
+import Insta from './components/Insta';
 
 export default {
   name: 'app',
-  components: { InstaFeed },
+  components: { Insta },
 };
 </script>
 
