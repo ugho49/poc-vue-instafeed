@@ -37,7 +37,7 @@ export default {
     getPosts() {
       const lastUpdateTime = localStorage.getItem(LS_INSTA_LAST_UPDATE_TIME) || null;
 
-      if (lastUpdateTime === null || this.canRequest(lastUpdateTime)) { // TODO: ou expiré
+      if (lastUpdateTime === null || this.canRequest(lastUpdateTime)) {
         // Get from API
         this.getPostsFromApi();
       } else {
@@ -60,7 +60,6 @@ export default {
         .then((res) => {
           this.posts = res.data.data;
           localStorage.setItem(LS_INSTA_POSTS, JSON.stringify(this.posts));
-          console.log(res);
         }).catch((err) => {
           console.error(err);
           if (this.posts.length === 0) {
