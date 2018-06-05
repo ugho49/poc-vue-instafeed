@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   name: 'InstaPost',
   props: {
@@ -23,8 +25,11 @@ export default {
     img() {
       return this.post.images.low_resolution.url;
     },
+    createdAt() {
+      return new Date(this.post.created_time * 1000);
+    },
     timeago() {
-      return '7 min ago';
+      return moment(this.createdAt).fromNow();
     },
   },
 };
@@ -43,8 +48,18 @@ export default {
     font-weight: 600;
     position: absolute;
     bottom: 4px;
-    right: 0px;
+    right: 0;
     padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s linear;
+  }
+
+  &:hover {
+    .timeago {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }
 </style>

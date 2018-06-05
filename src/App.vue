@@ -6,11 +6,15 @@
 </template>
 
 <script>
+import moment from 'moment';
 import InstaFeed from './components/insta-feed';
 
 export default {
   name: 'app',
   components: { InstaFeed },
+  created() {
+    moment.locale('fr');
+  },
 };
 </script>
 
