@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <img v-for="(post, index) of posts" :key="index"
-         :src="post.images.low_resolution.url" alt="Image Instagram">
+  <div class="insta-feed">
+    <insta-post v-for="(post, index) of posts" :key="index" :post="post"/>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import InstaPost from './insta-post';
 
 const LS_INSTA_POSTS = 'LS_INSTA_POSTS';
 const LS_INSTA_LAST_UPDATE_TIME = 'LS_INSTA_LAST_UPDATE_TIME';
@@ -16,6 +16,7 @@ const UPDATE_INSTA_SECOND_TIME = 45; // Every 45 seconds
 
 export default {
   name: 'InstaFeed',
+  components: { InstaPost },
   data() {
     return {
       posts: [],
@@ -71,3 +72,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.insta-feed {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+</style>
