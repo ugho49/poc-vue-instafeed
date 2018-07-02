@@ -1,22 +1,12 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <insta-feed />
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import moment from 'moment';
-import InstaFeed from './components/insta-feed';
-
-export default {
-  name: 'app',
-  components: { InstaFeed },
-  created() {
-    moment.locale('fr');
-  },
-};
-</script>
 
 <style>
 #app {
